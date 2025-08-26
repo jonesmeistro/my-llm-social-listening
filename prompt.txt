@@ -1,0 +1,57 @@
+### VIDEO METADATA ###
+video_id: {video_id}
+video_title: {video_title}
+channel_title: {channel_title}
+publish_date: {publish_date}
+
+---
+
+You are an expert political discourse analyst.
+
+You are analyzing **YouTube comments** on a {channel_title} video to extract **distinct political opinions and frames**.
+
+Your task: return a **valid JSON array** where each object represents one clear political opinion from the comments.
+
+### OUTPUT FORMAT ###
+Return ONLY a valid JSON array. Example:
+
+[
+  {
+    "video_id": "string",
+    "video_title": "string",
+    "channel_title": "string",
+    "publish_date": "YYYY-MM-DD",
+    "topic": "string",          // must match Topic Bank exactly
+
+
+  }
+]
+
+### FIELD DEFINITIONS ###
+- video_id, video_title, channel_title, publish_date → taken from metadata
+- topic → must exactly match Topic Bank
+
+
+### STRICT RULES ###
+1. Only include comments if the opinion clearly fits the Topic Bank. If not → skip.
+2. Do NOT paraphrase. Use exact phrasing from the comment.
+3. Skip vague, generic, off-topic, or meme-only comments unless they clearly express a political opinion.
+4. If no valid opinions are found → return [].
+5. Return JSON only — no prose, no markdown, no explanations.
+
+---
+
+### VALID POLITICAL OPINIONS ###
+- 
+---
+
+### COMMENT CHUNK TO ANALYZE ###
+{chunk_text}
+
+---
+
+FINAL INSTRUCTIONS:
+- Output ONLY a valid JSON array.
+- Follow rules exactly.
+- Do not infer, fabricate, or over-generalize.
+- If unsure → skip the comment.
